@@ -129,10 +129,15 @@ nav {
     
     .footer-sections {
         grid-template-columns: 1fr 1fr;
+        
     }
 }
 
 @media (max-width: 768px) {
+    .hero-content{
+        margin-top: 6rem;
+    }
+
     .nav-links {
         display: none;
     }
@@ -144,10 +149,25 @@ nav {
     .contact-container {
         grid-template-columns: 1fr;
     }
+    .footer-content{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center ;
+    }
     
     .footer-sections {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: center ;
+        grid-template-columns:none;
+        gap: 0.1rem;
+        margin-bottom: 0rem;
     }
+
 }
 
 @media (max-width: 480px) {
@@ -203,6 +223,7 @@ h2 {
 h2 span {
     color: var(--primary-color);
 }
+
 .loading{
     height: 100vh;
     width: 100%;
@@ -215,6 +236,7 @@ h2 span {
     justify-content: center;
     animation: loding 1s 4s forwards;
 }
+
 @keyframes loding{
     0%{
         display: flex;
@@ -232,22 +254,32 @@ h2 span {
         width: 100%;
         display: flex;
         opacity: 1;
+        background:white;
     }
     50%{
         height: 100vh;
         width: 100%;
         display: flex;
         opacity: 1;
+        background:white;
+    }
+    85%{
+        height: 8vh;
+        width: 5%;
+        display: flex;
+        opacity: 1;
+        background:transparent ;
     }
     90%{
         height: 8vh;
-        width: 10%;
+        width: 5%;
         display: flex;
         opacity: 1;
+        background:transparent ;
     }
     100%{
         height: 8vh;
-        width: 20%;
+        width: 5%;
         display: none;
         opacity: 0;
     }
@@ -438,7 +470,9 @@ nav.scrolled {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
-
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .about-text {
@@ -447,6 +481,7 @@ nav.scrolled {
 .about-text h2{
     text-align: start;
     font-size: 3rem;
+   
 }
 
 .about-text .highlight {
@@ -491,7 +526,6 @@ nav.scrolled {
 }
 
 .about-image img {
-    width: 100%;
     height: 500px;
     object-fit: cover;
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -563,6 +597,7 @@ nav.scrolled {
     justify-content: center;
     gap: 1rem;
     margin-bottom: 3rem;
+    flex-wrap: wrap;
 }
 
 .filter-btn {
@@ -849,9 +884,9 @@ footer {
 
 .footer-sections {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
 }
 
 .footer-section h3 {

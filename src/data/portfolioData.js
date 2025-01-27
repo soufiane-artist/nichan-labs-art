@@ -1,18 +1,18 @@
 export const portfolioItems = [
     {
-        image: 'https://i.pinimg.com/originals/54/98/4c/54984cfe923984a0fc55ed6b3f2b53ab.gif',
+        image: './images/mural.jpg',
         title: 'Fresque Urbaine Moderne',
         category: 'murals',
         description: 'Art mural contemporain dans l\'espace urbain'
     },
     {
-        image: 'https://islamicwallartstore.com/cdn/shop/products/first.jpg?v=1661420451&width=1080',
+        image: './images/calligraphy.jpg',
         title: 'Calligraphie Murale',
         category: 'murals',
         description: 'Calligraphie arabe moderne sur mur'
     },
     {
-        image: 'https://i.gifer.com/Psaj.gif',
+        image: './images/Abstract.jpg',
         title: 'Peinture Abstraite',
         category: 'paintings',
         description: 'Œuvre abstraite sur toile, techniques mixtes'

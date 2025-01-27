@@ -1,12 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
+import SectionArt from './pages/SectionArt';
 
 function App() {
   return (
-    <Router>
-      <Home />
-    </Router>
+   <BrowserRouter>
+   <Routes>
+     <Route path="/" element={<Home />} />
+     <Route path="/sectionArt" element={< SectionArt/>} />
+   </Routes>
+   </BrowserRouter>
   );
 }
 

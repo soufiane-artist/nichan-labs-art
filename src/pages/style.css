@@ -1,0 +1,119 @@
+.sectionArt {
+    background: linear-gradient(135deg, #00000000 0%, #d7ffe181 100%),url("https://t3.ftcdn.net/jpg/07/03/42/64/360_F_703426450_eiUhTC2UCgy74TGWcM3ZmHw1lXzoGdIn.jpg");
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.281);
+    width: 70%;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid rgb(99, 0, 0);
+}
+
+.sectionArt .container{
+    margin: auto;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    backdrop-filter: blur(1px);
+    margin-left: 15px;
+    padding: 0px 40px;
+}
+.sectionArt .container:hover{
+    scale: 1.03;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.sectionArt .images{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: fit-content;
+    align-items: center;
+}
+.sectionArt .images .logo{
+    height: 40px;
+    z-index: 1;
+    position: absolute;
+
+}
+
+.sectionArt .images .gif{
+    height: 155px;
+
+}
+
+.sectionArt .text{
+    text-align: start;
+    color: white;
+    margin-left: 20px;
+}
+
+.sectionArt .text h4{
+    font-size: 2.1rem;
+    text-decoration: underline;
+    font-family: "fint-d-art";
+}
+
+.gif-bird{
+    position: relative ;
+    background-color: red;
+    height: 100px;
+}
+
+.gif-bird img{
+    height: 100px;
+    animation: gifLoading 6s infinite;
+    position: absolute;
+}
+@keyframes gifLoading{
+    0%{
+        scale: 1;
+        margin-left: 80px;
+    }
+    50%{
+        scale: 1.1;
+        margin-left: -50px;
+    }
+    75%{
+        margin-left: 50px;
+        scale: 1;    
+
+    }
+    95%{
+        scale: 1;
+        margin-left: 150px;
+    }
+    100%{
+        margin-left: 105px;
+        scale: 1;
+    }
+}
+.birds{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    border-radius: 15px;
+    left: 0;
+    z-index: 99;
+    display: none;
+    transition: 0.5s;
+    animation: gifBirds 2s forwards;
+}
+@keyframes gifBirds{
+    0%{
+        opacity: 0;
+        background: "";
+
+    }
+    100%{
+        opacity: 1;
+        background: rgba(255, 255, 255, 0.95);
+
+    }
+}
