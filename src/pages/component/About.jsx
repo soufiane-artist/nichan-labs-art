@@ -9,7 +9,7 @@ function About() {
                         <h2>Notre Vision chez <span>NichanLabs</span></h2>
                         <p className="highlight">Innovation, Créativité & Excellence Technique</p>
                         <p>
-                            En tant que membre de l'équipe NichanLabs, je combine expertise technique et vision artistique pour
+                            NichanLabs combine expertise technique et vision artistique pour
                             créer des expériences numériques uniques. Notre approche innovante fusionne art traditionnel et
                             technologies de pointe pour repousser les limites de la création digitale.
                         </p>
