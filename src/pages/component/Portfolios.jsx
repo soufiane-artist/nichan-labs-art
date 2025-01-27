@@ -5,7 +5,8 @@ function Portfolios() {
     const [activeFilter, setActiveFilter] = useState('all');
     const [filteredItems, setFilteredItems] = useState(portfolioItems);
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage =9;
+    const [selectedImage, setSelectedImage] = useState(null);
+    const itemsPerPage = 9;
 
     const handleFilterClick = (category) => {
         setActiveFilter(category);
@@ -26,8 +27,19 @@ function Portfolios() {
     // Handle page change
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
-        // Scroll to the top of the portfolio section
         document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    // Handle image click
+    const handleImageClick = (item) => {
+        setSelectedImage(item);
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when viewer is open
+    };
+
+    // Handle close viewer
+    const handleCloseViewer = () => {
+        setSelectedImage(null);
+        document.body.style.overflow = 'auto'; // Restore scrolling
     };
 
     return (
@@ -53,6 +65,7 @@ function Portfolios() {
                             style={{
                                 animation: `fadeInUp ${0.3 + index * 0.1}s ease forwards`
                             }}
+                            onClick={() => handleImageClick(item)}
                         >
                             <img src={item.image} alt={item.title} loading="lazy" />
                             <div className="portfolio-overlay">
@@ -90,6 +103,20 @@ function Portfolios() {
                     </div>
                 )}
             </section>
+
+            {/* Fullscreen Image Viewer */}
+            {selectedImage && (
+                <div className="fullscreen-viewer" onClick={handleCloseViewer}>
+                    <button className="close-btn" onClick={handleCloseViewer}>×</button>
+                    <div className="viewer-content" onClick={e => e.stopPropagation()}>
+                        <img src={selectedImage.image} alt={selectedImage.title} />
+                        <div className="viewer-info">
+                            <h3>{selectedImage.title}</h3>
+                            <p>{selectedImage.description}</p>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
