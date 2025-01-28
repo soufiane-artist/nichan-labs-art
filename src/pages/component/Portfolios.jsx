@@ -6,6 +6,8 @@ function Portfolios() {
     const [filteredItems, setFilteredItems] = useState(portfolioItems);
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedImage, setSelectedImage] = useState(null);
+    const [isClicking, setIsClicking] = useState(true);
+    const [clickPosition, setClickPosition] = useState({ x: 0, y: 0 });
     const itemsPerPage = 9;
 
     const handleFilterClick = (category) => {
@@ -31,7 +33,12 @@ function Portfolios() {
     };
 
     // Handle image click
-    const handleImageClick = (item) => {
+    const handleImageClick = (item, event) => {
+        setClickPosition({ x: event.clientX, y: event.clientY });
+        setIsClicking(true);
+        setTimeout(() => {
+            setIsClicking(false);
+        }, 1000);
         setSelectedImage(item);
         document.body.style.overflow = 'hidden'; // Prevent scrolling when viewer is open
     };
@@ -60,15 +67,27 @@ function Portfolios() {
                 <div className="portfolio-grid">
                     {currentItems.map((item, index) => (
                         <div 
-                            key={index}
+                            key={item.id}
                             className="portfolio-item"
                             style={{
                                 animation: `fadeInUp ${0.3 + index * 0.1}s ease forwards`
                             }}
-                            onClick={() => handleImageClick(item)}
+                            onClick={(e) => handleImageClick(item, e)}
                         >
-                            <img src={item.image} alt={item.title} loading="lazy" />
+                            <img  src={item.image} alt={item.title} loading="lazy" />
+                            <img 
+                                style={{
+                                    height: '100px', 
+                                    width: '100px',
+                                    display: isClicking ? 'block' : 'none',
+                                    pointerEvents: 'none'
+                                }} 
+                                className="clicking" 
+                                src="https://cliply.co/wp-content/uploads/2021/07/392107080_HAND_CLICKING_400px.gif" 
+                                alt="clicking animation" 
+                            />
                             <div className="portfolio-overlay">
+                                
                                 <h3>{item.title}</h3>
                                 <p>{item.description}</p>
                             </div>
