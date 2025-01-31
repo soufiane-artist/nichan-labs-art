@@ -397,6 +397,21 @@ nav.scrolled {
     width: 100%;
 }
 
+.click-icon {
+    margin-left: 8px;
+    font-size: 0.9em;
+    animation: clickBounce 1s infinite;
+}
+
+@keyframes clickBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -761,6 +776,7 @@ nav.scrolled {
     position: relative;
     overflow: hidden;
     border-top: 2px solid #e74c3c;
+    border-bottom: 2px solid #e74c3c;
 }
 
 .contact::before {
@@ -1098,66 +1114,96 @@ footer {
 }
 
 /* 3D Cubes */
+.animated-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    perspective: 1000px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+}
+
+.cube-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: containerRotate 20s linear infinite;
+}
+
 .cube {
+    position: absolute;
     width: 100px;
     height: 100px;
     transform-style: preserve-3d;
-    z-index: 10;
-}
-
-.dynamic-cube {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform-origin: center center;
-    z-index: 1000;
-    pointer-events: none;
-}
-
-.dynamic-cube .face {
-    background: rgba(231, 76, 60, 0.4);
-    border: 2px solid var(--primary-color);
-    box-shadow: 0 0 20px rgba(231, 76, 60, 0.3);
-    transition: all 0.1s ease-out;
-}
-
-.dynamic-cube:hover .face {
-    background: rgba(231, 76, 60, 0.6);
-    box-shadow: 0 0 30px rgba(231, 76, 60, 0.5);
-}
-
-.fixed-cube {
-    position: absolute;
-    left: 50px;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: gentleRotation 8s infinite linear;
-}
-
-.fixed-cube .face {
-    background: rgba(52, 152, 219, 0.3);
-    border: 2px solid var(--accent-color);
+    animation: cubeFloat 10s ease-in-out infinite;
 }
 
 .face {
     position: absolute;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(5px);
+    background: rgba(231, 76, 60, 0.1);
+    border: 2px solid rgba(231, 76, 60, 0.3);
+    backface-visibility: visible;
 }
 
-.front  { transform: translateZ(50px); }
-.back   { transform: translateZ(-50px) rotateY(180deg); }
-.right  { transform: translateX(50px) rotateY(90deg); }
-.left   { transform: translateX(-50px) rotateY(-90deg); }
-.top    { transform: translateY(-50px) rotateX(90deg); }
+.front { transform: translateZ(50px); }
+.back { transform: translateZ(-50px) rotateY(180deg); }
+.right { transform: translateX(50px) rotateY(90deg); }
+.left { transform: translateX(-50px) rotateY(-90deg); }
+.top { transform: translateY(-50px) rotateX(90deg); }
 .bottom { transform: translateY(50px) rotateX(-90deg); }
 
-@keyframes gentleRotation {
-    0% { transform: translateY(-50%) rotateX(0) rotateY(0); }
-    100% { transform: translateY(-50%) rotateX(360deg) rotateY(360deg); }
+.cube-1 { left: 20%; top: 20%; animation-delay: 0s; }
+.cube-2 { left: 60%; top: 30%; animation-delay: -2s; }
+.cube-3 { left: 30%; top: 60%; animation-delay: -4s; }
+.cube-4 { left: 70%; top: 50%; animation-delay: -6s; }
+.cube-5 { left: 40%; top: 40%; animation-delay: -8s; }
+
+@keyframes containerRotate {
+    0% {
+        transform: rotateX(20deg) rotateY(0);
+    }
+    100% {
+        transform: rotateX(20deg) rotateY(360deg);
+    }
 }
 
+@keyframes cubeFloat {
+    0%, 100% {
+        transform: translateZ(100px) rotateX(0) rotateY(0);
+    }
+    25% {
+        transform: translateZ(150px) rotateX(90deg) rotateY(90deg);
+    }
+    50% {
+        transform: translateZ(100px) rotateX(180deg) rotateY(180deg);
+    }
+    75% {
+        transform: translateZ(150px) rotateX(270deg) rotateY(270deg);
+    }
+}
+
+.nichalabs-card {
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.nichalabs-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+    scale: 1.02;
+}
 /* Floating Shapes */
 .floating-shapes {
     position: absolute;
@@ -1345,7 +1391,6 @@ footer {
     width: 300px;
     height: 300px;
     perspective: 1000px;
-    z-index: 1;
 }
 
 .sphere {
@@ -1577,4 +1622,244 @@ footer {
         height: 35px;
         font-size: 20px;
     }
+}
+
+/* NichaLabs Styles */
+.nichalabs-container {
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow: hidden;
+    background: linear-gradient(130deg,rgba(255, 255, 255, 0.966), #00014633, #ffffff33),url(https://i.pinimg.com/originals/d4/81/f3/d481f3c72e283309071f79e01b05c06d.gif);
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #c0392b;
+}
+
+.particles-bg {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.nichalabs-card {
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-header {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 20px 20px 0 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.browser-dots {
+    display: flex;
+    gap: 8px;
+    margin-right: 20px;
+}
+
+.browser-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.browser-dots span:nth-child(1) { background: #ff5f57; }
+.browser-dots span:nth-child(2) { background: #ffbd2e; }
+.browser-dots span:nth-child(3) { background: #28c940; }
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.company-logo {
+    height: 35px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+
+.card-body {
+    text-align: center;
+    padding: 1.5rem 0.5rem;
+}
+
+.main-text {
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: white;
+    text-decoration: underline;
+}
+
+.tech-stack {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(231, 76, 60, 0.05);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+    transform: translateY(-5px);
+    background: rgba(231, 76, 60, 0.1);
+}
+
+.tech-icon {
+    font-size: 2rem;
+}
+
+.tech-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+@media (max-width: 850px) {
+    .nichalabs-card {
+        width: 90%;
+    }
+    
+    .tech-stack {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .card-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .main-text {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nichalabs-container {
+        padding: 1.5rem;
+    }
+    
+    .card-header {
+        padding: 0.8rem 1rem;
+    }
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .tech-icon {
+        font-size: 2rem;
+    }
+}
+
+.animated-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.code-elements {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.code-element {
+    position: absolute;
+    color: rgba(231, 77, 60, 0.3);
+    font-family: 'Consolas', monospace;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    animation: floatCode 20s linear infinite;
+    opacity: 0;
+}
+
+@keyframes floatCode {
+    0% {
+        transform: translateX(-100%) translateY(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%) translateY(0);
+        opacity: 0;
+    }
+}
+
+.code-element-1 { top: 5%; animation-delay: 0s; }
+.code-element-2 { top: 15%; animation-delay: 2s; }
+.code-element-3 { top: 25%; animation-delay: 4s; }
+.code-element-4 { top: 35%; animation-delay: 6s; }
+.code-element-5 { top: 45%; animation-delay: 8s; }
+.code-element-6 { top: 55%; animation-delay: 10s; }
+.code-element-7 { top: 65%; animation-delay: 12s; }
+.code-element-8 { top: 75%; animation-delay: 14s; }
+.code-element-9 { top: 85%; animation-delay: 16s; }
+.code-element-10 { top: 95%; animation-delay: 18s; }
+.code-element-11 { top: 10%; animation-delay: 1s; }
+.code-element-12 { top: 20%; animation-delay: 3s; }
+.code-element-13 { top: 30%; animation-delay: 5s; }
+.code-element-14 { top: 40%; animation-delay: 7s; }
+.code-element-15 { top: 50%; animation-delay: 9s; }
+.code-element-16 { top: 60%; animation-delay: 11s; }
+.code-element-17 { top: 70%; animation-delay: 13s; }
+.code-element-18 { top: 80%; animation-delay: 15s; }
+.code-element-19 { top: 90%; animation-delay: 17s; }
+.code-element-20 { top: 100%; animation-delay: 19s; }
+
+.nichalabs-card {
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #e74c3c;
 }

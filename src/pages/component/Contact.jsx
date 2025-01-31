@@ -50,14 +50,16 @@ const Contact = () => {
                         <FontAwesomeIcon icon={faEnvelope} />
                         </i>
                         <h3>Email</h3>
-                        <p>contact@nichanart.com</p>
+                        <p>nichanlabs@gmail.com</p>
                     </div>
                     <div className="info-item">
                         <i>
                         <FontAwesomeIcon icon={faPhone} />
                         </i>
                         <h3>Téléphone</h3>
-                        <p>+212 XXX-XXXXXX</p>
+                        <p>+212 667997688</p>
+                        <p>+212 620202706</p>
+                        <p>+212 621820506</p>
                     </div>
                 </div>
                 <form id="contact-form" onSubmit={handleSubmit}>

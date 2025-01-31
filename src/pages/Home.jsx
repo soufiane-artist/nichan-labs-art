@@ -8,6 +8,7 @@ import Hero from './component/Hero';
 import Portfolios from './component/Portfolios';
 import About from './component/About';
 import Services from './component/Services';
+import NichaLabs from './component/NichaLabs';
 
 
 
@@ -76,6 +77,8 @@ export default function Home() {
 
              {/* Contact Section */}
             <Contact/>
+             {/* NichaLabs Section */}
+             <NichaLabs/>
              {/* Footer Section */}
             <Footer/>
             <button id="scroll-top" className="scroll-top" aria-label="Scroll to top">

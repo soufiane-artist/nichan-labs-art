@@ -3,17 +3,10 @@ import './style.css'
 function SectionArt() {
 
   
-  const navigateToWebsite = () => {
-    const birds = document.getElementById('birds');
-    birds.style.display = 'flex';
-    setTimeout(() => {
-    window.location.href = 'https://arts.nichanlabs.com/';
-    },2000)
-  };
+
 
   return (
-    <div onClick={navigateToWebsite} className="sectionArt">
-      <img id="birds" className="birds" src="./picmix.com_492040.gif" alt="" />
+    <div className="sectionArt">
       <div className="container">
         <div className="images">
           <img className="logo" src="./sdvdv copie.png" alt="" />

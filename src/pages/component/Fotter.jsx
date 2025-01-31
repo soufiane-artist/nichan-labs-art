@@ -28,8 +28,12 @@ function Footer() {
           <div className="footer-section">
             <h3>Contact NichanLabs</h3>
             <ul className="contact-info">
-              <li><i className="fas fa-phone"></i> +212 XXX-XXXXXX</li>
-              <li><i className="fas fa-envelope"></i> contact@nichanlabs.com</li>
+              <li><i className="fas fa-phone"></i>
+                  <p>+212 667997688</p>
+                        <p>+212 620202706</p>
+                        <p>+212 621820506</p>
+              </li>
+              <li><i className="fas fa-envelope"></i> nichanlabs@gmail.com</li>
               <li><i className="fas fa-map-marker-alt"></i> Maroc</li>
             </ul>
           </div>
