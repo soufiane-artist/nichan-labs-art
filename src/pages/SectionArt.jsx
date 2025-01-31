@@ -6,27 +6,27 @@ function SectionArt() {
   const navigateToWebsite = () => {
     const birds = document.getElementById('birds');
     birds.style.display = 'flex';
-     setTimeout(() => {
-     window.location.href = 'https://nichan-labs-art.vercel.app/';
-     },2000)
+    setTimeout(() => {
+    window.location.href = 'https://arts.nichanlabs.com/';
+    },2000)
   };
 
   return (
     <div onClick={navigateToWebsite} className="sectionArt">
       <img id="birds" className="birds" src="./picmix.com_492040.gif" alt="" />
       <div className="container">
-      <div className="images">
-        <img className="logo" src="./sdvdv copie.png" alt="" />
-        <img className="gif" src="https://media3.giphy.com/media/FAXL6cF4FeWGyp4a48/giphy.gif?cid=6c09b952bjznltdb3qs2jo2n2go9bmlf05ydl1j8k85mi379&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s" alt="" />
+        <div className="images">
+          <img className="logo" src="./sdvdv copie.png" alt="" />
+          <img className="gif" src="https://media3.giphy.com/media/FAXL6cF4FeWGyp4a48/giphy.gif?cid=6c09b952bjznltdb3qs2jo2n2go9bmlf05ydl1j8k85mi379&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s" alt="" />
         </div>
         <div className="text">
-        <h4>Art Technologique</h4>
-        <p>
-            Plangeg dans l'art technologique - explorez notre univers
-        </p>
+          <h4>Art Technologique</h4>
+          <p>
+              Plangeg dans l'art technologique - explorez notre univers
+          </p>
         </div>
-        <div className="gif-bird">
-        <img src="https://img1.picmix.com/output/stamp/thumb/5/3/1/9/2589135_7c843.gif" alt="" />
+          <div className="gif-bird-art">
+          <img src="https://img1.picmix.com/output/stamp/thumb/5/3/1/9/2589135_7c843.gif" alt="" />
         </div>
       </div>
     </div>

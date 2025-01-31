@@ -39,7 +39,6 @@
     height: 40px;
     z-index: 1;
     position: absolute;
-
 }
 
 .sectionArt .images .gif{
@@ -54,18 +53,56 @@
 }
 
 .sectionArt .text h4{
-    font-size: 2.1rem;
+    font-size: 1.8rem;
     text-decoration: underline;
     font-family: "fint-d-art";
+    border: 1px solid rgba(255, 255, 255, 0.315);
+    padding: 0px 10px 0px 10px;
+    background-color: rgba(5, 5, 5, 0.342);
+}
+@media (max-width: 1008px){
+    .sectionArt{
+        width: 96%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sectionArt .container{
+        margin: auto;
+        padding: 10px 4px;
+        display: flex;
+       flex-wrap: nowrap;
+    }
+    .sectionArt .images .logo{
+        height: 25px;
+    }
+    .sectionArt .images .gif{
+        height: 100px;
+    }
+    .sectionArt .text h4{
+        font-size: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.315);
+        padding: 0px 10px 0px 10px;
+        background-color: rgba(5, 5, 5, 0.342);
+    }
+    .gif-bird-art{
+        display: none;
+    }
+    .gif-bird-art img{
+        display: none;
+    }
 }
 
-.gif-bird{
+.gif-bird-art{
     position: relative ;
-    background-color: red;
     height: 100px;
+    flex: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.gif-bird img{
+.gif-bird-art img{
     height: 100px;
     animation: gifLoading 6s infinite;
     position: absolute;
@@ -73,7 +110,8 @@
 @keyframes gifLoading{
     0%{
         scale: 1;
-        margin-left: 80px;
+        margin-left: 100px
+        ;
     }
     50%{
         scale: 1.1;
@@ -86,10 +124,10 @@
     }
     95%{
         scale: 1;
-        margin-left: 150px;
+        margin-left: 10px;
     }
     100%{
-        margin-left: 105px;
+        margin-left: 0px;
         scale: 1;
     }
 }
